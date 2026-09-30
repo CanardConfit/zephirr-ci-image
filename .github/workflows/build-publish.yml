@@ -19,14 +19,14 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Check out application repository
-        uses: actions/checkout@v6
-        with:
-          repository: ${{ vars.APPLICATION_REPOSITORY }}
-          ref: ${{ vars.APPLICATION_REF || 'main' }}
-          path: application
-          persist-credentials: false
-          token: ${{ secrets.APPLICATION_REPOSITORY_TOKEN || github.token }}
+#      - name: Check out application repository
+#        uses: actions/checkout@v6
+#        with:
+#          repository: ${{ vars.APPLICATION_REPOSITORY }}
+#          ref: ${{ vars.APPLICATION_REF || 'main' }}
+#          path: application
+#          persist-credentials: false
+#          token: ${{ secrets.APPLICATION_REPOSITORY_TOKEN || github.token }}
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v4
