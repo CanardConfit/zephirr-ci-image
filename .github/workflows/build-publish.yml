@@ -38,7 +38,7 @@ jobs:
       - name: Build and publish
         uses: docker/build-push-action@v7
         with:
-          context: ./application
+#          context: ./application
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
