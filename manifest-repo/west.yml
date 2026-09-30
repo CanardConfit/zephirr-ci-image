@@ -1,0 +1,21 @@
+manifest:
+  # lowest version of the manifest file schema that can parse this file’s data
+  version: 0.13
+  projects:
+    - name: zephyr
+      revision: v4.4.0
+      url: https://github.com/zephyrproject-rtos/zephyr
+      # path: deps/zephyr -> no longer needed since we are now using path-prefix in the import section
+      # explicitly add Zephyr-specific west extensions
+      # west-commands: scripts/west-commands.yml -> no longer needed
+      # because we import the west.yml file from zephyr where commands are defined
+      import:
+        path-prefix: deps
+        file: west.yml # not strictly needed since it is the value by default
+        name-allowlist:
+          - cmsis_6
+          - hal_nordic
+    - name: zpp_lib
+      url: https://github.com/AdvEmbSof/zpp_lib.git
+      revision: v1.3
+      path: deps/zpp_lib
