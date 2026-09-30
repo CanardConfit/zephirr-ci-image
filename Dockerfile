@@ -1,13 +1,3 @@
-# ****************************************************************************
-# * @file Dockerfile
-# * @author Tom Andrivet <tom.andrivet@hes-so.ch>
-# *
-# * @brief Docker image for the pipeline CI
-# *
-# * @date 2026-09-30
-# * @version 1.0.0
-# ****************************************************************************
-
 FROM python:3.13-slim-bookworm AS tools
 
 SHELL ["/bin/bash", "-e", "-o", "pipefail", "-c"]
@@ -32,7 +22,8 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         bash build-essential ca-certificates ccache cmake \
         device-tree-compiler dfu-util file git g++-multilib gperf \
-        libc6-dev-i386 libmagic1 libsdl2-dev ninja-build unzip wget xz-utils \
+        libc6-dev-i386 libmagic1 libsdl2-dev libtcl8.6 libtk8.6 \
+        ninja-build unzip wget xz-utils \
     && mkdir -p /etc/apt/keyrings \
     && wget -qO /etc/apt/keyrings/llvm.asc \
         https://apt.llvm.org/llvm-snapshot.gpg.key \
